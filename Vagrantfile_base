@@ -1,0 +1,47 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# vagrant init ubuntu/xenial64
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/xenial64"
+
+  # config.vm.network :private_network, ip: '10.42.42.10'
+  # Flask
+  config.vm.network "forwarded_port", guest: 6050, host: 6050
+  # Folder Settings
+  config.vm.synced_folder "./hello-src/", "/home/vagrant/hello/src/", mount_options:["dmode=775,fmode=664"]  
+  # config.vm.synced_folder "./photo-src/", "/home/vagrant/photo/src/", mount_options:["dmode=775,fmode=664"]
+
+  config.vm.provision "shell", inline: <<-SHELL
+    
+  #   # Apply the latest OS updates
+     sudo apt-get update
+     sudo apt-get -y upgrade
+
+     sudo apt-get remove -y python2.7
+     sudo rm /usr/bin/python
+     sudo ln -s /usr/bin/python3 /usr/bin/python
+
+
+  #   # Install Python goodies
+     sudo apt-get install -y python3-pip
+     export LC_ALL=C
+     pip3 install Pillow
+     #sudo apt-get install --assume-yes python-pip
+    
+     sudo pip3  install flask
+     sudo pip3  install flask-login
+     sudo pip3  install flask-openid
+     sudo pip3  install flask-mail
+     sudo pip3  install flask-sqlalchemy
+     sudo pip3  install sqlalchemy-migrate
+     sudo pip3  install flask-whooshalchemy
+     sudo pip3  install flask-wtf
+     sudo pip3  install flask-babel
+     sudo pip3  install guess_language
+     sudo pip3  install flipflop
+     sudo pip3  install coverage
+   SHELL
+
+end
