@@ -36,15 +36,15 @@ To verify that the installation was successful, run the following command which 
 
     mkdir myprj_src
     cd myprj_src
-    //virtualenv -p python3 demoname_prj   // if you want to use virtualenv
-    //source demoname_prj/bin/activate     // activate / deactivate
+    //virtualenv -p python3 example_prj   // if you want to use virtualenv
+    //source example_prj/bin/activate     // activate / deactivate
     // copy all files from zip folder to myprj_src folder
 
 If you want to change to another project, you must change infront of synchro folder definitions in Vagrantfile
 
 ### 6. Folders on PC::myprj_src and folder in virtual box::myprj/src are totally synchronized. 
 
-    You can edit files in PC::demoname_src and to use them in virtual box.
+    You can edit files in PC::example_src and to use them in virtual box.
 
 ### 7. Run first vagrant command from command window
 
