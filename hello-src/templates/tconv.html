@@ -1,0 +1,38 @@
+<html>
+<head><style>
+   div.a {
+     text-align: left;
+     text-align-last: left;
+     position: absolute;
+     left: 50px;
+   }
+   div.b {
+     text-align: left;
+     text-align-last: left;
+     position: absolute;
+     left: 80px;
+   }
+
+</style></head>
+
+<body>
+  <h2>Temperature Conversion</h2>       
+  <form action = "http://localhost:6050/success" method = "post">
+    <div class="a">
+       <p>Enter the temperature in degrees :</p>
+       <p><input type = "text" name = "degree" /></p>
+
+       <p>Select temperature scale:</p>
+       <div class="b">
+         <label><input type="radio" name="test" value="C" checked> Celsius</label></br>
+         <label><input type="radio" name="test" value="F"> Fahrenheit</label></br>
+         <label><input type="radio" name="test" value="K"> Kelvin</label></br>
+
+         <p><input type = "submit" value = "submit" /></p>
+       </div>
+   </div>
+  </form>
+  
+</body>
+</html>
+
